@@ -45,6 +45,8 @@ export const VITE_REACT_BASELINE: FileSystemTree = {
             "@types/react": "^19.0.0",
             "@types/react-dom": "^19.0.0",
             "@vitejs/plugin-react": "^4.3.4",
+            "tailwindcss": "^4.0.0",
+            "@tailwindcss/vite": "^4.0.0",
             typescript: "~5.7.2",
             vite: "^6.0.5",
           },
@@ -59,9 +61,10 @@ export const VITE_REACT_BASELINE: FileSystemTree = {
     file: {
       contents: `import { defineConfig } from 'vite'
 import react from '@vitejs/plugin-react'
+import tailwindcss from '@tailwindcss/vite'
 
 export default defineConfig({
-  plugins: [react()],
+  plugins: [react(), tailwindcss()],
   server: {
     // Required inside WebContainer: disable HMR WebSocket (not supported)
     hmr: false,
@@ -123,11 +126,17 @@ export default defineConfig({
 
   src: {
     directory: {
+      "index.css": {
+        file: {
+          contents: `@import "tailwindcss";\n`,
+        },
+      },
       "main.tsx": {
         file: {
           contents: `import { StrictMode } from 'react'
 import { createRoot } from 'react-dom/client'
 import App from './App.tsx'
+import './index.css'
 
 const rootEl = document.getElementById('root')
 if (!rootEl) throw new Error('Root element not found')

@@ -199,7 +199,7 @@ const INITIAL_IDE_STATE: IDEState = {
   webContainerStatus: "idle",
   webContainerError: null,
   files: {},
-  autoSave: true, // Defaulting to true as it is better UX for an IDE
+  autoSave: false, // Defaulting to false per user request
 };
 
 // ─── Store ────────────────────────────────────────────────────────────────────

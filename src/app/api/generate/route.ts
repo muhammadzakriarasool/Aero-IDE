@@ -5,7 +5,8 @@ const SYSTEM_PROMPT = `You are an expert frontend developer building web applica
 Your task is to generate the code for a specific feature requested by the user.
 
 CRITICAL: You must only output code mapped to a Vite + React environment. Do not use Next.js.
-CRITICAL: You must return a raw, parsable JSON object. Do NOT wrap it in markdown blockticks like \`\`\`json. The response should start with { and end with }.
+CRITICAL: You must return a raw, parsable JSON object. Do NOT wrap it in markdown blockticks like \\\`\\\`\\\`json. The response should start with { and end with }.
+CRITICAL: You MUST use Tailwind CSS v4 for styling. You are strictly FORBIDDEN from generating tailwind.config.js, postcss.config.js, or using old @tailwind directives. Use the @tailwindcss/vite plugin and @import "tailwindcss" pattern.
 
 The JSON object MUST perfectly match the WebContainer FileSystemTree structure.
 Example structure:
@@ -14,19 +15,24 @@ Example structure:
     "directory": {
       "App.tsx": {
         "file": {
-          "contents": "import React from 'react';\\n\\nexport default function App() {\\n  return <div>Hello</div>;\\n}\\n"
+          "contents": "import React from 'react';\\n\\nexport default function App() {\\n  return <div className=\\"text-blue-500\\">Hello</div>;\\n}\\n"
         }
       },
       "main.tsx": {
         "file": {
-          "contents": "import React from 'react';\\nimport ReactDOM from 'react-dom/client';\\nimport App from './App';\\n\\nReactDOM.createRoot(document.getElementById('root')!).render(<App />);\\n"
+          "contents": "import React from 'react';\\nimport ReactDOM from 'react-dom/client';\\nimport App from './App';\\nimport './index.css';\\n\\nReactDOM.createRoot(document.getElementById('root')!).render(<App />);\\n"
+        }
+      },
+      "index.css": {
+        "file": {
+          "contents": "@import \\"tailwindcss\\";\\n"
         }
       }
     }
   },
   "package.json": {
     "file": {
-      "contents": "{\\n  \\"name\\": \\"vite-react-app\\",\\n  \\"dependencies\\": {\\n    \\"react\\": \\"^18.2.0\\",\\n    \\"react-dom\\": \\"^18.2.0\\"\\n  },\\n  \\"devDependencies\\": {\\n    \\"@vitejs/plugin-react\\": \\"^4.0.0\\",\\n    \\"vite\\": \\"^4.0.0\\"\\n  },\\n  \\"scripts\\": {\\n    \\"dev\\": \\"vite\\"\\n  }\\n}\\n"
+      "contents": "{\\n  \\"name\\": \\"vite-react-app\\",\\n  \\"dependencies\\": {\\n    \\"react\\": \\"^19.0.0\\",\\n    \\"react-dom\\": \\"^19.0.0\\"\\n  },\\n  \\"devDependencies\\": {\\n    \\"@vitejs/plugin-react\\": \\"^4.3.4\\",\\n    \\"tailwindcss\\": \\"^4.0.0\\",\\n    \\"@tailwindcss/vite\\": \\"^4.0.0\\",\\n    \\"vite\\": \\"^6.0.5\\"\\n  },\\n  \\"scripts\\": {\\n    \\"dev\\": \\"vite\\"\\n  }\\n}\\n"
     }
   },
   "index.html": {
@@ -36,12 +42,12 @@ Example structure:
   },
   "vite.config.ts": {
     "file": {
-      "contents": "import { defineConfig } from 'vite';\\nimport react from '@vitejs/plugin-react';\\n\\nexport default defineConfig({\\n  plugins: [react()]\\n});\\n"
+      "contents": "import { defineConfig } from 'vite';\\nimport react from '@vitejs/plugin-react';\\nimport tailwindcss from '@tailwindcss/vite';\\n\\nexport default defineConfig({\\n  plugins: [react(), tailwindcss()]\\n});\\n"
     }
   }
 }
 
-You must ALWAYS include \`package.json\`, \`index.html\`, \`vite.config.ts\`, \`src/main.tsx\`, and \`src/App.tsx\` at minimum to ensure the Vite dev server can boot properly. Ensure you implement the feature directly in \`src/App.tsx\` or related components within \`src/\`. Use Tailwind CSS classes for styling if needed.
+You must ALWAYS include \`package.json\`, \`index.html\`, \`vite.config.ts\`, \`src/main.tsx\`, \`src/index.css\`, and \`src/App.tsx\` at minimum to ensure the Vite dev server can boot properly. Ensure you implement the feature directly in \`src/App.tsx\` or related components within \`src/\`. ALWAYS use Tailwind CSS classes for styling.
 `;
 
 export async function POST(req: NextRequest) {

@@ -2,7 +2,7 @@
   <h1>🚀 Aero IDE</h1>
   <p><strong>The Next-Generation, AI-Powered Browser Development Environment</strong></p>
   
-  [![Live Demo](https://img.shields.io/badge/Live_Demo-Available_Soon-success?style=for-the-badge&logo=vercel)](#https://aero-ide-709381797703.us-central1.run.app) 
+  [![Live Demo](https://img.shields.io/badge/Live_Demo-Available_Soon-success?style=for-the-badge&logo=vercel)](https://aero-ide-709381797703.us-central1.run.app) 
   [![Demo Video](https://img.shields.io/badge/Demo_Video-Watch_Now-blue?style=for-the-badge&logo=youtube)](#)
 </div>
 

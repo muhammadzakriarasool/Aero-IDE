@@ -102,21 +102,30 @@ Aero IDE is just getting started. Following our Phase 1 MVP, our roadmap is aggr
 
 ### 🤖 Phase 2: Multi-Agent Swarm & Zero-Cost Routing
 
-- **Actor-Critic Swarm Topology:** Upgrading from a single generalist AI to a specialized swarm. A "Heavy Lifter" agent drafts the architecture, while a separate "Reviewer" agent rigorously tests the output before it mounts to the WebContainer.
-- **Session-Riding Chrome Extension:** Bypassing expensive enterprise API costs entirely by routing prompts through a secure local extension that utilizes authenticated consumer AI web sessions.
-- **Error-Driven Circuit Breakers:** Implementing intelligent loops that automatically pause execution and request human intervention if the WebContainer throws identical consecutive errors, preventing token drain.
+- 🧠 **Multi-Agent Swarm | Actor-Critic Topology**
+  Instead of one AI doing it all, a "Heavy Lifter" codes while a "Reviewer" tests it.
+- 🕵️ **Zero-Cost APIs | Session-Riding Chrome Extension**
+  Bypass expensive API bills by routing prompts securely through local, authenticated web sessions.
+- 🛑 **Infinite Loop Protection | Error-Driven Circuit Breakers**
+  If the code fails repeatedly, the AI pauses automatically and asks you for help to save tokens.
 
 ### 👁️ Phase 3: External Context & Complete Observability
 
-- **Figma-to-Code (MCP Integration):** Native integration with the Model Context Protocol (MCP). The AI will autonomously extract design tokens directly from Figma URLs and build pixel-perfect React components.
-- **Visual Architecture Maps:** Curing the "black box" effect of AI generation by rendering interactive, real-time node graphs of your dependencies and file flows using `tree-sitter`.
-- **Advanced Agentic Telemetry:** Streaming the internal "Chain-of-Thought" reasoning and debate logic of the AI swarm directly to the developer dashboard for full transparency.
+- 🎨 **Figma-to-Code | Native MCP Integration**
+  The AI pulls design tokens directly from a Figma URL and builds pixel-perfect React components.
+- 🗺️ **Visual Architecture Maps | Real-Time Node Graphs**
+  No more "black box" code generation. Watch your dependencies and file flows map out visually in real-time.
+- 📊 **Agentic Telemetry | Transparent Chain-of-Thought**
+  Stream the AI swarm's internal reasoning and debate logic directly to your dashboard.
 
 ### 🚀 Phase 4: Moonshots & Enterprise CI/CD
 
-- **Multiplayer Collaborative Coding:** Integrating `Yjs` and WebRTC to enable Google Docs-style, real-time collaborative code editing across different browsers with absolutely zero backend server costs.
-- **Polyglot Environments (WASIp3):** Upgrading the execution sandbox to support WASM System Interface Preview 3, allowing the AI to orchestrate Python, Rust, and Go microservices directly in the browser alongside React.
-- **Local Host OS Bridge:** Deploying a secure local daemon that allows the browser-based IDE to autonomously execute privileged CLI operations like triggering GitHub commits and Vercel CI/CD deployments.
+- 🤝 **Multiplayer Collaborative Coding | Yjs & WebRTC**
+  Google Docs-style, real-time collaborative coding across different browsers—with zero backend server costs.
+- 🐍 **Polyglot Environments | WASIp3 Sandbox**
+  Run Python, Rust, and Go microservices natively inside the browser alongside your React app.
+- 💻 **Autonomous CI/CD | Local Host OS Bridge**
+  A secure local daemon lets the browser-based IDE autonomously trigger GitHub commits and Vercel deployments.
 
 ## 🏆 Hackathon Context
 

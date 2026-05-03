@@ -66,7 +66,7 @@ Want to run Aero IDE on your own machine? Follow these simple steps:
 ### 1. Clone the repository
 
 ```bash
-git clone https://github.com/your-username/aero-ide.git
+git clone https://github.com/muhammadzakriarasool/aero-ide.git
 cd "aero-ide"
 ```
 
